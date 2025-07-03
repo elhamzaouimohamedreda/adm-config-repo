@@ -1,0 +1,59 @@
+spring.application.name=sa
+server.port=8081
+management.endpoints.web.exposure.include=*
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=red715552@gmail.com
+spring.mail.password=gyuh rwlh mdor gaag
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+logging.level.org.springframework.web=DEBUG
+logging.level.org.springframework.security=DEBUG
+logging.level.org.keycloak=DEBUG
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+
+# LDAP Configuration
+ldap.url=ldap://localhost:389
+ldap.base=dc=myorg,dc=local
+ldap.admin.dn=cn=admin,dc=myorg,dc=local
+ldap.admin.password=admin
+
+# Console output pattern to see which class is logging
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+
+
+# OAuth2 Login with Keycloak
+keycloak.auth-server-url=http://localhost:8080
+keycloak.realm=adm-springboot-microservice-realm
+keycloak.resource=ADM
+keycloak.credentials.secret=u4vZY3U24SyHWS0FXsfjZct5kuvgrozE
+spring.security.oauth2.client.registration.keycloak.client-id=ADM
+spring.security.oauth2.client.registration.keycloak.client-secret=u4vZY3U24SyHWS0FXsfjZct5kuvgrozE
+spring.security.oauth2.client.registration.keycloak.scope=openid,profile,email
+spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
+spring.security.oauth2.client.registration.keycloak.redirect-uri={baseUrl}/login/oauth2/code/{registrationId}
+
+spring.security.oauth2.client.provider.keycloak.issuer-uri=http://localhost:8080/realms/adm-springboot-microservice-realm
+spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
+
+# Enable Resource Server JWT validation
+spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:8080/realms/adm-springboot-microservice-realm
+
+# Keycloak Admin Configuration
+keycloak.admin.username=admin
+keycloak.admin.password=admin
+keycloak.real.username=reda5
+keycloak.real.password=Pokemon12,
+debug=true
+# Database Configuration
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521/XE
+spring.datasource.username=powercard
+spring.datasource.password=reda123
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+# JPA/Hibernate Configuration
+spring.jpa.generate-ddl=true
+spring.jpa.properties.hibernate.format_sql=true
+# JPA Config
+spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
